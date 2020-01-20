@@ -1,4 +1,4 @@
-# iStore - Microservice Using Spring Cloud - POC
+# iStore - Microservice Using Spring Cloud - Demo 
 
 ![alt text](Microservice-Architecture.jpg "Architecture Diagram")
 
