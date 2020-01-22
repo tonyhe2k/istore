@@ -38,6 +38,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
 			.antMatchers(env.getProperty("api.user.actuator.url.path")).permitAll()
 			.antMatchers(HttpMethod.POST, env.getProperty("api.registration.url.path")).permitAll()
 			.antMatchers(HttpMethod.POST, env.getProperty("api.login.url.path")).permitAll()
+			.antMatchers(HttpMethod.GET, env.getProperty("api.product.url.path")).permitAll()
 			.anyRequest().authenticated()
 			.and()
 			.addFilter(new AuthorizationFilter(authenticationManager(), env));
