@@ -1,0 +1,18 @@
+<p></p>
+<h3>Login</h3>
+<p></p>
+<div class="container">
+    <div class="alert alert-warning" *ngIf="loginForm.dirty && (loginForm.invalid || invalidLogin)">{{ errorMessage }}</div>
+    <form (ngSubmit)="!loginForm.invalid && handelLogin()" #loginForm="ngForm">
+        <fieldset class="form-group">
+            <label>Username: </label>
+            <input class="form-control" required="required" minlength="5" type="text" name="email" [(ngModel)]="email" />
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Password: </label>
+            <input class="form-control" required="required" minlength="5" type="password" name="password" [(ngModel)]="password"/>
+        </fieldset>
+        
+        <button type="submit" class="btn btn-warning">Login</button>
+    </form>
+</div>
