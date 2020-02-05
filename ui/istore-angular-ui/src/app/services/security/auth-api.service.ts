@@ -18,6 +18,10 @@ export class AuthAPIService {
     return this.httpClient.post<any>(`${API_GATEWAY_HOST}/customer-service/user/login`, {email, password}, {observe: 'response'})
   }
 
+  register(email, password, username, firstName, lastName):Observable<any> {
+    return this.httpClient.post<any>(`${API_GATEWAY_HOST}/customer-service/user`, {email, password, username, firstName, lastName}, {observe: 'response'})
+  }
+
   getAuthenticatedUser() {
     return sessionStorage.getItem('authenticatedUser')
   }

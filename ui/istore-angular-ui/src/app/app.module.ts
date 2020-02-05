@@ -17,6 +17,7 @@ import { ProductListingComponent } from './components/product-listing/product-li
 
 import { HttpIntercepterBasicAuthServiceService } from './services/security/http-intercepter-basic-auth-service.service';
 import { OrderComponent } from './components/order/order.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { OrderComponent } from './components/order/order.component';
     MenuComponent,
     ProductItemComponent,
     ProductListingComponent,
-    OrderComponent
+    OrderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,80 @@
+version: '3'
+
+services:
+	# front end UI
+	istore-angular-ui:
+		image: tonyhe2k/istore-angular-ui
+		ports:
+			- "80:80"
+	
+	# api gateway - all front end should point to this ONLY
+	api-gateway:
+		image: tonyhe2k/api-gateway
+		ports:
+			- "8011:8011"
+		depends_on: 
+			eureka-server
+
+	# microservices
+	customer-service:
+		image: tonyhe2k/customer-service
+		container_name: customer-service
+		environment: 
+			spring.cloud.config.uri:http://config-server:8012
+		depends_on: 
+			eureka-server
+			boot-admin
+
+	catalog-service:
+		image: tonyhe2k/catalog-service
+		container_name: catalog-service
+		depends_on: 
+			eureka-server
+			boot-admin
+
+	order-service:
+		image: tonyhe2k/order-service
+		container_name: order-service
+		depends_on: 
+			eureka-server
+			boot-admin
+
+	# common services
+	rabbitmq:
+		image: 'rabbitmq:3.6-management-alpine'
+		container_name: rabbitmq
+		ports: 
+			# The standard AMQP protocol port
+			- "5672:5672"
+			# HTTP management UI
+			- "15672:15672"
+			- "5671:5671"
+			- "15671:15671"
+			- "4369:4369"
+	
+	config-server:
+		image: tonyhe2k/config-server
+		container_name: config-server
+		ports: 
+			- "8012:8012"
+
+	boot-admin:
+		image: tonyhe2k/boot-admin
+		container_name: boot-admin
+		ports:
+			- "9999:9999"
+
+	eureka-server:
+		image: tonyhe2k/eureka-server
+		container_name: eureka-server
+		ports: 
+			- "8761:8761"
+
+	zipkin-server:
+		image: openzipkin/zipkin
+		container_name: zipkin-server
+		ports: 
+			- "9411:9411"
+
+
+		

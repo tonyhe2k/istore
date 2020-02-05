@@ -8,6 +8,7 @@
     <nav>
         <ul class="nav__links">
             <li><a *ngIf="!authAPIService.isUserLoggedIn()" routerLink="/login">Login</a></li>
+            <li><a *ngIf="!authAPIService.isUserLoggedIn()" routerLink="/register">Register</a></li>
             <li><a *ngIf="authAPIService.isUserLoggedIn()" routerLink="/logout">Logout</a></li>
         </ul>
     </nav>
