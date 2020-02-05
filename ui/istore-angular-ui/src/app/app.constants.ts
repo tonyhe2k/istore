@@ -1,1 +1,1 @@
-export const API_GATEWAY_HOST = "http://localhost:8011"
+export const API_GATEWAY_HOST = "http://api-gateway"
