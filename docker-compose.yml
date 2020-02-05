@@ -17,6 +17,7 @@ services:
   container_name: api-gateway
   environment: 
    - "spring.cloud.config.uri=http://config-server:8012"
+   - "spring.profiles.active=docker"
   ports:
    - "8011:8011"
   depends_on: 
@@ -31,6 +32,7 @@ services:
   container_name: customer-service
   environment: 
    - "spring.cloud.config.uri=http://config-server:8012"
+   - "spring.profiles.active=docker"
   depends_on: 
    - config-server
    - eureka-server
@@ -43,6 +45,7 @@ services:
   container_name: catalog-service
   environment: 
    - "spring.cloud.config.uri=http://config-server:8012"
+   - "spring.profiles.active=docker"
   depends_on: 
    - config-server
    - eureka-server
@@ -55,6 +58,7 @@ services:
   container_name: order-service
   environment: 
    - "spring.cloud.config.uri=http://config-server:8012"
+   - "spring.profiles.active=docker"
   depends_on: 
    - config-server
    - eureka-server
@@ -100,6 +104,7 @@ services:
   container_name: eureka-server
   environment: 
    - "spring.cloud.config.uri=http://config-server:8012"
+   - "spring.profiles.active=docker"
   ports: 
    - "8761:8761"
   depends_on: 
