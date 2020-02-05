@@ -34,3 +34,16 @@
 	3. Headers
 		a. Key=Authorization
 		b. Value=Bearer JWT Token from above
+
+
+4. Create Product
+	1. POST
+	2. http://localhost:50298/product
+	3. {
+			"id":  12347,
+			"name":  "superman",
+			"description":  "Superman Toy ",
+			"price":  119.99,
+			"totalInventory" :   200
+
+		}
